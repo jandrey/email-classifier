@@ -59,7 +59,7 @@ cd backend
 ```bash
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
-venv\Scripts\activate     # Windows
+source venv/Scripts/activate  # Windows
 ```
 
 3. Instale as dependências:
@@ -67,20 +67,22 @@ venv\Scripts\activate     # Windows
 pip install -r requirements.txt
 ```
 
-4. Configure a variável de ambiente da API (OpenAI):
+4. Configure a variável de ambiente da API (OpenAI) crie o arquivo .env e adicione:
 ```bash
-export OPENAI_API_KEY="SUA_CHAVE_AQUI"   # Linux/Mac
-setx OPENAI_API_KEY "SUA_CHAVE_AQUI"     # Windows
+OPENAI_API_KEY=SUA_CHAVE_AQUI
 ```
 
-5. Rode o servidor FastAPI:
-```bash
-uvicorn main:app --reload
-```
+## Testando o Backend
 
-O backend estará disponível em `http://127.0.0.1:8000`.
+Depois de iniciar o servidor FastAPI (`uvicorn app.main:app --reload`), você pode acessar a documentação interativa e testar os endpoints diretamente no navegador:
 
----
+[Swagger UI](http://localhost:8000/docs#/)
+
+No Swagger, você poderá:
+
+- Visualizar todos os endpoints disponíveis.
+- Enviar requisições de teste (`POST`, `GET`, etc.).
+- Conferir os retornos e exemplos de resposta.
 
 ## Configuração do Frontend
 
@@ -110,21 +112,6 @@ O frontend estará disponível em `http://localhost:3000`.
 3. Clique em **Enviar**.
 4. O backend processará o email, classificará e retornará a resposta sugerida.
 5. Confira o resultado na interface.
-
----
-
-## Deploy
-
-Você pode hospedar a aplicação em serviços gratuitos como:
-
-- **Frontend:** Vercel, Netlify
-- **Backend:** Render, Heroku, Hugging Face Spaces
-
-### Passo rápido para deploy:
-
-1. **Backend:** Configure `uvicorn main:app --host 0.0.0.0 --port $PORT`.
-2. **Frontend:** Configure `npm run build` e publique a pasta `build/`.
-3. Atualize a URL da API no frontend (`axios`) para apontar para o backend hospedado.
 
 ---
 
