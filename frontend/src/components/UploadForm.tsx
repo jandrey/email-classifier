@@ -20,7 +20,6 @@ const UploadForm = () => {
   const [error, setError] = useState("");
   const [loadingText, setLoadingText] = useState("Aguardando análise do email");
 
-  // Função para mostrar os pontos dinamicamente
   useEffect(() => {
     let dotCount = 0;
     let interval: NodeJS.Timeout | null = null;
