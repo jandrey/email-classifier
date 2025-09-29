@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = "http://localhost:8000"; // Troque pelo URL do backend no deploy
+// A URL vai ser configurada com base no que está no .env
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000"; 
 
 /**
  * Envia email para classificação e recebe resultado
